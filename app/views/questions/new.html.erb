@@ -1,2 +1,15 @@
 質問登録フォーム
 質問、回答、カテゴリそれぞれを入力できるようにする
+
+
+<%= form_with model:@question do |f| %>
+
+<%= f.label :title, "質問" %>
+<%= f.text_field :title , class: "border border-gray-300" %>
+
+<%= f.label :answer, "回答" %>
+<%= f.text_field :answer , class: "border border-gray-300" %>
+
+<%= f.submit "送信" %>
+
+<% end %>
