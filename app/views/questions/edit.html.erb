@@ -1,1 +1,17 @@
-編集するためには、どのidを編集するのかが必要なので、まだ何も登録していない状態だとできない
+質問編集フォーム
+質問、回答、カテゴリそれぞれを入力できるようにする
+
+
+<%= form_with model:@question do |f| %>
+
+<%= f.label :title, "質問" %>
+<%= f.text_field :title , class: "border border-gray-300" %>
+
+<%= f.label :answer, "回答" %>
+<%= f.text_field :answer , class: "border border-gray-300" %>
+
+<%= f.submit "送信" %>
+
+<% end %>
+
+<%= link_to "一覧へ戻る", questions_path %>
