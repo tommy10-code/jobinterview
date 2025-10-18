@@ -5,12 +5,11 @@
 **終わったこと**
 それぞれのビューページ作成
 入力フォームから保存まで
-
-
-**これからすること**
 保存したデータをindexページで出力をする
 カテゴリを3つ追加して、保存、表示まで
 編集ページの表示、更新ができるようになるまで
+
+**これからすること**
 回答画面の作成
 ・質問を押したら質問が表示
 ・回答を押したら回答が表示
@@ -25,5 +24,15 @@
 **なぜ？**
 ・編集操作でPATCHだということを明示的に書かなくても、HTTPメソッドが振り分けられる？
 updateコントローラーで@としていることで？どこでPATCHだと伝わっているのか？？
+
 ・削除ってこの方法しかないっけ？削除はmethod指定するだけで消えなかったの、railsのバージョンとか関係してるんだっけな？
 <%= link_to "削除", question_path(question), method: :delete,  data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか?" } %>
+
+・このコードなんだっけ？key,valueとか絡んできた結果がプルダウンと紐づいて表示されたような
+だから、id1 通常を選んだら、questionに保存されるのはcategory_idか。そのidで何なのかがわかる
+<%=  f.label :category_id, "カテゴリ" %>
+<%= f.collection_select :category_id, Category.all.order(:id), :id, :name,
+
+・関連データのnameを取得したい なんだっけ？
+<%= "カテゴリー:#{question.category_id}" %> <br>
+今回はmodelの関連付けができていなかった！

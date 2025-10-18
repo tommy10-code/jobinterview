@@ -10,6 +10,12 @@
 <%= f.label :answer, "回答" %>
 <%= f.text_field :answer , class: "border border-gray-300" %>
 
+<!-- ここでカテゴリの項目を追加するんだけど、questionにはcategoryないし、プルダウンで設定ってどうやるんだっけ？ -->
+<%=  f.label :category_id, "カテゴリ" %>
+<%= f.collection_select :category_id, Category.all.order(:id), :id, :name, class: "border border-gray-300" %>
+
 <%= f.submit "送信" %>
 
 <% end %>
+
+<%= link_to "トップへ戻る", root_path %>

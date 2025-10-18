@@ -5,12 +5,18 @@
 カテゴリーがそれぞれ行ごとに並ぶようにする
 
 
+
 <% @questions.each do |question| %><br>
   <%= "質問内容:#{question.title}" %> <br>
   <%= "回答内容:#{question.answer}" %> <br>
+  <p>カテゴリー:
+    <%#= question.category_id %>
+    <%= question.category_id ? question.category.name : "空欄" %>
+  </p>
   <%= link_to "編集", edit_question_path(question) %>
   <%= link_to "削除", question_path(question), method: :delete,  data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか?" } %>
 <% end %>
 
+<%= link_to "トップへ戻る", root_path %>
 
 

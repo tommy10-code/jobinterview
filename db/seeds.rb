@@ -7,3 +7,9 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+categories = %w[通常 技術 アプリ]
+#=> ["通常", "技術", "アプリ"]
+categories.each do |n|
+  Category.find_or_create_by!(name: n)
+end
