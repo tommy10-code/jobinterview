@@ -12,7 +12,7 @@
 
 <!-- ここでカテゴリの項目を追加するんだけど、questionにはcategoryないし、プルダウンで設定ってどうやるんだっけ？ -->
 <%=  f.label :category_id, "カテゴリ" %>
-<%= f.collection_select :category_id, Category.all.order(:id), :id, :name, class: "border border-gray-300" %>
+<%= f.collection_select :category_id, Category.all, :id, :name, class: "border border-gray-300" %>
 
 <%= f.submit "送信" %>
 

@@ -15,24 +15,7 @@
 ・回答を押したら回答が表示
 ・次へで画面切り替え
 ・★☆で解けなかった問題の登録/解除
-
-
-初期のCRUD何もみずにやるの初めてか。
-忘れていること、初耳のこと、めちゃある！
-でも、やっていると昔と違うのは感じるし、できる状態の実装は楽しいかも
+エラーメッセージの表示
+バリデーションの設定
 
 **なぜ？**
-・編集操作でPATCHだということを明示的に書かなくても、HTTPメソッドが振り分けられる？
-updateコントローラーで@としていることで？どこでPATCHだと伝わっているのか？？
-
-・削除ってこの方法しかないっけ？削除はmethod指定するだけで消えなかったの、railsのバージョンとか関係してるんだっけな？
-<%= link_to "削除", question_path(question), method: :delete,  data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか?" } %>
-
-・このコードなんだっけ？key,valueとか絡んできた結果がプルダウンと紐づいて表示されたような
-だから、id1 通常を選んだら、questionに保存されるのはcategory_idか。そのidで何なのかがわかる
-<%=  f.label :category_id, "カテゴリ" %>
-<%= f.collection_select :category_id, Category.all.order(:id), :id, :name,
-
-・関連データのnameを取得したい なんだっけ？
-<%= "カテゴリー:#{question.category_id}" %> <br>
-今回はmodelの関連付けができていなかった！
