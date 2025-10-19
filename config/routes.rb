@@ -2,8 +2,7 @@ Rails.application.routes.draw do
   #resources :tasks
   root "tops#page"
   resources :questions
-
-
+  resource :practice, only: [:show]
 
   get "up" => "rails/health#show", as: :rails_health_check
 
