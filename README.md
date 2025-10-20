@@ -20,15 +20,10 @@
 バリデーションの設定
 
 **なぜ？** あえて残して、作業前に確認をしてからNotionに入れようかな！
-・showページの表示って？idを元にしていたような？→resourceだと/practiceで表示ができる、resourcesにすると/practice/1となる！
-・面接練習をするページを作成するためには、既存のcontrollerを使うのか、新規にroutesから作成した方がいいのか？→新規に
-・resourceでもcontrollerとviewのファイル名はsを末尾につける！モデル内のみsをつけない！
-・ディレクトリ（フォルダ）は入れ物
-・ファイルは中身
-つまりこれだ！！
-    app/                         ← ディレクトリ
-    ├── controllers/            ← ディレクトリ
-    │    └── practices_controller.rb   ← ファイル
-    └── views/                   ← ディレクトリ
-          └── practices/          ← ディレクトリ
-              └── show.html.erb  ← ファイル
+・renderの使い方
+呼び出したいファイル名には_アンダースコアが必要！
+| 呼び出し場所      | 呼び出し方                            | ファイルパス                                  |
+| ----------- | -------------------------------- | --------------------------------------- |
+| 同じフォルダ内     | `<%= render "inquiry" %>`        | `app/views/practices/_inquiry.html.erb` |
+| 別フォルダから     | `<%= render "shared/inquiry" %>` | `app/views/shared/_inquiry.html.erb`    |
+| 他コントローラのビュー | `<%= render "users/profile" %>`  | `app/views/users/_profile.html.erb`     |

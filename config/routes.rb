@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "tops#page"
   resources :questions
   resource :practice, only: [:show]
+  get "/inquiry", to: "inquiry#inquiry"
 
   get "up" => "rails/health#show", as: :rails_health_check
 

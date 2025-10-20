@@ -1,6 +1,14 @@
 <h1>面接練習スタート</h1>
-<p>Find me in app/views/practice/show.html.erb</p>
 
 <%= @question.title %><br>
+
+<!--ここで入口とリクエストをかくいや、ここをrenderでいけないか？-->
+
+<%= turbo_frame_tag "inquiry" do %>
+  <p></p>
+<% end %>
+
+<%= link_to "質問する", inquiry_path, data: { turbo_frame: "inquiry" } %>
+
 
 <%= link_to "トップへ戻る", root_path %>
