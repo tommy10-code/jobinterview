@@ -1,7 +1,5 @@
 <h1>面接練習スタート</h1>
 
-<%= @question.title %><br>
-
 <!--ここで入口とリクエストをかくいや、ここをrenderでいけないか？-->
 
 <%= turbo_frame_tag "inquiry" do %>
@@ -9,6 +7,13 @@
 <% end %>
 
 <%= link_to "質問する", inquiry_path, data: { turbo_frame: "inquiry" } %>
+
+
+<%= link_to "回答する", inquiry_answer_path, data: { turbo_frame: "answer" } %>
+
+<%= turbo_frame_tag "answer" do %>
+  <p></p>
+<% end %>
 
 
 <%= link_to "トップへ戻る", root_path %>

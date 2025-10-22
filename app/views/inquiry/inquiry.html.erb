@@ -3,3 +3,7 @@
   <%= @question.title %>
 <% end %>
 
+
+<%= turbo_frame_tag "answer" do %>
+  <%= @question.answer %>
+<% end %>
