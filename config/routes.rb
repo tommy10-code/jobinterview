@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :questions
   resource :practice, only: [:show]
   get "/inquiry", to: "inquiry#inquiry"
+  get "/inquiry/answer", to: "inquiry#answer"
 
   get "up" => "rails/health#show", as: :rails_health_check
 
