@@ -1,7 +1,6 @@
 class InquiryController < ApplicationController
   def inquiry
-    @question = Question.all.sample
-    redirect_to practice_path(question_id: @question.id)
+    @question = Question.order("RANDOM()").first
   end
 
   def answer

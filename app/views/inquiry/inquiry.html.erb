@@ -1,9 +1,17 @@
-
+<!-- app/views/inquiry/inquiry.html.erb -->
 <%= turbo_frame_tag "inquiry" do %>
-  <%= @question.title %>
+  <p><%= @question.title %></p>
+
+    <!-- このリンクで answer フレームに回答だけ差し込む -->
+  <p>
+    <%= link_to "回答する",
+                inquiry_answer_path(question_id: @question.id),
+                data: { turbo_frame: "answer" } %><br>
+
+    <%= turbo_frame_tag "answer" do %>
+      <p></p>
+    <% end %>
+  </p>
+
 <% end %>
 
-
-<%= turbo_frame_tag "answer" do %>
-  <%= @question.answer %>
-<% end %>
