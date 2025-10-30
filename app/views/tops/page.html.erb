@@ -6,5 +6,9 @@
 <%= link_to "面接練習へ", practice_path %>
 
 <%= link_to "一覧", questions_path %>
-<%= link_to "質問作成", new_question_path %>
+<%= link_to "質問作成", new_question_path %><br>
 
+  <input type="text" id="github_name" placeholder="github nameを入力してください"><br>
+  <button id="get_repositories_button">取得</button><br>
+  <ul id="repository_list">
+  </ul>
