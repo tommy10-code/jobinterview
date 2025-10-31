@@ -19,6 +19,21 @@ new Promise((resolve) => {
     console.log("rejectが実行されてcatchの処理が動きました")
   })
 
+
+  async function getUser() { 
+    try {
+      const res = await fetch("https://api.github.com/users/octocat");// ← Promiseを“待つ” 
+      if (!res.ok)
+      throw new Error(HTTP ${res.status}); 
+      const data = await res.json(); // ← これもPromise（JSONパースも非同期） 
+      console.log(data);
+     } catch (err) { 
+      console.error("取得失敗:", err); }
+      finally { console.log("done"); } 
+    } 
+    getUser();
+
+
 //   console.log("① Promiseを作るよ");
 
 // const promise = new Promise((resolve) => {
