@@ -24,13 +24,13 @@ new Promise((resolve) => {
     try {
       const res = await fetch("https://api.github.com/users/octocat");// ← Promiseを“待つ” 
       if (!res.ok)
-      throw new Error(HTTP ${res.status}); 
+      throw new Error(`HTTP ${res.status}`); 
       const data = await res.json(); // ← これもPromise（JSONパースも非同期） 
       console.log(data);
-     } catch (err) { 
+     } catch (err) {
       console.error("取得失敗:", err); }
-      finally { console.log("done"); } 
-    } 
+      finally { console.log("done"); }
+    }
     getUser();
 
 
