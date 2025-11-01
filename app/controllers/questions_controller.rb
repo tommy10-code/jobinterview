@@ -12,6 +12,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    puts params.inspect
     @question = Question.new(question_params)
     @question.save
       redirect_to questions_path
