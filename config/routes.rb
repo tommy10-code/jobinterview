@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #resources :tasks
-  root "tops#page"
+  root "tops#page", to: "tops#page"
   resources :questions
   resource :practice, only: [:show]
   get "/inquiry", to: "inquiry#inquiry"
