@@ -1,0 +1,44 @@
+<h1>Java#index</h1>
+<p>Find me in app/views/java/index.html.erb</p>
+
+<p>JS練習 Step1</p>
+  <button id="btn">クリックしてみよう</button>
+  <p id="msg">まだ押されていません</p>
+
+  <script>
+    // Step 1. 要素を取得する
+    const btn = document.getElementById("btn")
+    const msg = document.getElementById("msg")
+
+    // Step 2. ボタンがクリックされたときに実行する処理を登録
+    btn.addEventListener("click", () => {
+      // Step 3. テキストを書き換える
+      if (msg.textContent === "まだ押されていません"){
+        msg.textContent = "クリックされました！"
+        msg.style.color = "red"
+      } else {
+        msg.textContent = "まだ押されていません"
+        msg.style.color = "black"
+      }
+    })
+  </script>
+
+  <p>JS練習 Step2</p>
+  <button id="toggle-btn">メッセージを表示 / 非表示</button>
+  <p id="message" class="text-red-600">こんにちは!JavaScriptを使いこなそう!</p>
+
+  <script>
+    const btn1 = document.getElementById("toggle-btn");
+    const message = document.getElementById("message");
+
+    btn1.addEventListener("click", (e) => {
+      // e.preventDefault(); // ← form内なら有効化
+      message.classList.toggle("hidden");
+
+      if ( message.classList.contains("hidden") ) {
+        btn1.textContent = "メッセージを表示"
+      } else {
+        btn1.textContent = "メッセージを非表示"
+      }
+    });
+  </script>

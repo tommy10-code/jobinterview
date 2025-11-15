@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  #get "java/index"
   #resources :tasks
   root "tops#page", to: "tops#page"
+  resources :java
   resources :questions
   resource :practice, only: [:show]
   get "/inquiry", to: "inquiry#inquiry"
