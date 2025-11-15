@@ -54,11 +54,11 @@
   </div>
 
   <script>
-    const openBtn = document.getElementById("open-btn")
+    const openBtn1 = document.getElementById("open-btn")
     const box = document.getElementById("box")
 
     // ボタンを押したら表示
-    openBtn.addEventListener("click", (e) => {
+    openBtn1.addEventListener("click", (e) => {
       console.log(e)
       e.stopPropagation() // ← 自分のクリックを外側判定にしない
       box.classList.remove("hidden")
@@ -79,3 +79,81 @@
       alert("中のボタンがクリックされました！")
     })
   </script>
+
+
+<!--ーーーーーーーーーーーーここからStep4ーーーーーーーーーーーーーーー-->
+
+  <p>JS練習 Step4</p>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const openBtn  = document.getElementById("open-modal")
+      const overlay  = document.getElementById("overlay")
+      const modal    = document.getElementById("modal")
+      const closeBtn = document.getElementById("close-modal")
+
+      const openModal = (e) => {
+        e.stopPropagation()                 // 外側クリック扱いにさせない
+        overlay.classList.remove("hidden")  // 黒背景の表示
+        modal.classList.remove("hidden")    // モーダルの表示
+
+        // 外側クリックで閉じる（開いている間だけ監視）
+        document.addEventListener("click", onDocClick)
+        // Escで閉じる（開いている間だけ監視）
+        document.addEventListener("keydown", onEsc)
+      }
+
+      const closeModal = () => {
+        overlay.classList.add("hidden")     // 非表示
+        modal.classList.add("hidden")
+        // 監視解除（後片付け）
+        document.removeEventListener("click", onDocClick)
+        document.removeEventListener("keydown", onEsc)
+      }
+
+      // 外側クリック判定：overlayは外側、modalは内側
+      const onDocClick = (e) => {
+        const clickedInside = modal.contains(e.target)
+        if (!clickedInside) closeModal()
+      }
+
+      // Escキーで閉じる
+      const onEsc = (e) => {
+        if (e.key === "Escape") closeModal()
+      }
+
+      // イベント登録
+      openBtn.addEventListener("click", openModal)
+      closeBtn.addEventListener("click", (e) => {
+        // e.stopPropagation()
+        closeModal()
+      })
+
+      // 必要ないのでは？
+      // モーダル内クリックは外側扱いにしない（重要）
+      // modal.addEventListener("click", (e) => e.stopPropagation())
+    })
+  </script>
+
+  <button id="open-modal" class="px-4 py-2 rounded bg-blue-600 text-white">
+    モーダルを開く
+  </button>
+
+  <!-- オーバーレイ（外側クリック判定の“外側”） -->
+  <div id="overlay"
+      class="hidden fixed inset-0 bg-black/40">
+
+  <!-- モーダル本体（“内側”） -->
+    <div id="modal" class="hidden grid place-items-center mt-4 z-50">
+      <div class="w-[90%] max-w-md rounded-xl bg-white p-6 shadow-xl">
+        <h2 class="text-lg font-bold mb-3">モーダルの見出し</h2>
+        <p class="mb-6">ここがボックスの中です。外側をクリック or Esc で閉じます。</p>
+        <div class="flex justify-end gap-2">
+          <button id="close-modal" class="px-3 py-2 rounded bg-gray-200">閉じる</button>
+          <button class="px-3 py-2 rounded bg-blue-600 text-white"
+                  onclick="alert('中のボタンがクリックされました！')">
+            中のボタン
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>

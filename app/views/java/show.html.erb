@@ -1,0 +1,25 @@
+<div data-controller="modal">
+  <button data-action="click->modal#open">
+    モーダルを開く
+  </button>
+
+  <div data-modal-target="overlay" class="hidden fixed inset-0 bg-black/40">
+
+    <div data-modal-target="panel" data-action="click->modal#stop"
+    class="hidden grid place-items-center">
+      <div class="w-[90%] max-w-md rounded-xl bg-white p-6 shadow-xl">
+        <h2 class="text-lg font-bold mb-3">モーダルの見出し</h2>
+        <p class="mb-6">
+          ここがボックスの中です。外側クリック or Escで閉じます。
+        </p>
+        <div class="flex justify-end gap-2">
+          <button
+            data-action="click->modal#close"
+            class="px-3 py-2 rounded bg-gray-200">
+            閉じる
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
