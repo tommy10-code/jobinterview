@@ -42,3 +42,40 @@
       }
     });
   </script>
+
+
+  <p>JS練習 Step3</p>
+
+  <button id="open-btn">ボックスを表示</button>
+
+  <div id="box" class="box hidden">
+    <p>ここがボックスの中です</p>
+    <button id="inside-btn">中のボタン</button>
+  </div>
+
+  <script>
+    const openBtn = document.getElementById("open-btn")
+    const box = document.getElementById("box")
+
+    // ボタンを押したら表示
+    openBtn.addEventListener("click", (e) => {
+      console.log(e)
+      e.stopPropagation() // ← 自分のクリックを外側判定にしない
+      box.classList.remove("hidden")
+    })
+
+    // 外側クリックを検知
+    document.addEventListener("click", (e) => {
+      // boxの中をクリックしたなら閉じない
+      if (!box.contains(e.target)) {
+        box.classList.add("hidden")
+      }
+    })
+
+    // 中のボタンはクリックしても閉じない（確認用）
+    const insideBtn = document.getElementById("inside-btn")
+    insideBtn.addEventListener("click", (e) => {
+      // e.stopPropagation()
+      alert("中のボタンがクリックされました！")
+    })
+  </script>
