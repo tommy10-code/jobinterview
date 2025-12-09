@@ -27,3 +27,6 @@
 | 同じフォルダ内     | `<%= render "inquiry" %>`        | `app/views/practices/_inquiry.html.erb` |
 | 別フォルダから     | `<%= render "shared/inquiry" %>` | `app/views/shared/_inquiry.html.erb`    |
 | 他コントローラのビュー | `<%= render "users/profile" %>`  | `app/views/users/_profile.html.erb`     |
+
+
+途中で止まってしまっているな
